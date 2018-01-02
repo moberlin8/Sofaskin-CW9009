@@ -76,14 +76,17 @@
 	   <div class="left" >
 
 		<div class="card" >
-                    <h1><i class="fa fa-server"></i> $station.location Status
-		    <img align="right" src=https://travis-ci.org/moberlin8/Sofaskin-CW9009.svg?branch=master></h1>
+                    <h1><i class="fa fa-server"></i> $station.location Status</h1>
 			
 		    <table>
 			<tr><td><b>WeeWX uptime:</b></td><td>$station.uptime</td></tr>
                         <tr><td><b>Server uptime:</b></td><td>$station.os_uptime</td></tr>
                         <tr><td><b>Hardware:</b></td><td>$station.hardware</td></tr>
                         <tr><td><b>Software:</b></td><td><a href="http://weewx.com/" target="_blank" >WeeWX v$station.version</a></td></tr>
+			<tr><td><b>Travis CI:</b></td>
+			  <td><a href="https://travis-ci.org/moberlin8/Sofaskin-CW9009/">
+			  <img align="right" src=https://travis-ci.org/moberlin8/Sofaskin-CW9009.svg?branch=master></a>
+			  </td></tr>
 		    </table>
 		</div>
 
