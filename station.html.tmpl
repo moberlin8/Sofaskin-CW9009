@@ -15,10 +15,10 @@
 	<link href="$Extras.web_url/station.html" itemprop="url"/>
 	#end if
         
-	<title itemprop="name">$station.location Station Information</title>
+	<title itemprop="name">$station.location Information Page</title>
         
         <!-- Open Graph -->
-	<meta property="og:site_name" content="$station.location Station Information" />
+	<meta property="og:site_name" content="$station.location Station" />
 	<meta property="og:title" content="Station Information"/>
 	#if $Extras.has_key('web_url')
 	<meta property="og:url" content="$Extras.web_url/station.html"/>
@@ -45,28 +45,15 @@
     	<header>
             <div class="container-fix" >
                 <div class="h-left" >
-                <h1><i class="fa fa-cloud" ></i> $station.location </h1>
-                <p>$station.latitude[0]&deg; $station.latitude[1]' $station.latitude[2] | $station.longitude[0]&deg; $station.longitude[1]' $station.longitude[2] | $station.altitude | <a href="https://www.google.com/maps/?q=$station.latitude[0]&deg;%20$station.latitude[1]%20$station.latitude[2],$station.longitude[0]&deg;%20$station.longitude[1]%20$station.longitude[2]" target="_blank" ><i class="fa fa-map-marker" ></i> Show on map</a></p>
-                <h2>Station Information</h2>
-                <p><i class="fa fa-clock-o" ></i> $current.dateTime $current.dateTime.format("%Z")</p>
+		<h1><i class="fa fa-television" ></i> Oberlin.TV </h1>
+                <h2>Information</h2>
+                <p><i class="fa fa-clock-o" ></i> $current.dateTime.format("%b-%d-%Y %I:%M %p %Z")</p>
 		<p id="freshweather" class="m-orange"></p>
 		<script type="text/javascript">
                       window.onload = checkDiff("$current.dateTime ($current.dateTime.format('%Z'))");
                 </script>
                 </div>
                 
-                <div class="h-right" >
-                    <table>
-                        <tr><td><b>Station:</b></td><td>$station.hardware</td></tr>
-                        <tr><td><b>Software:</b></td><td><a href="http://weewx.com/" target="_blank" >WeeWX v$station.version</a></td></tr>
-                        <tr><td><b>Weewx uptime:</b></td><td>$station.uptime</td></tr>
-                        <tr><td><b>Server uptime:</b></td><td>$station.os_uptime</td></tr>
-			#if $Extras.has_key('cwop') and $Extras.has_key('crahs')
-			<tr><td><b>Station IDs:</b></td><td><a href="$Extras.cwop_url" target="_blank">$Extras.cwop</a> | <a href="$Extras.crahs_url" target="_blank">$Extras.crahs</a></td></tr>
-			#end if
-		    </table>
-                </div>
-
                 <nav>
                     <ul class="topnav" id="myTopnav">
 			<li class="icon"><a href="javascript:void(0);" onclick="myFunction()"><i class="fa fa-bars" ></i></a></li>
@@ -75,7 +62,7 @@
                         <li><a href="month.html" >Month</a></li>
                         <li><a href="year.html" >Year</a></li>
 			<li><a href="summary.html" >Summaries</a></li>
-			<li class="active"><a href="station.html" >Station</a></li>
+			<li class="active"><a href="station.html" >Information</a></li>
                         <li><a href="RSS/weewx_rss.xml" ><i class="fa fa-rss" ></i> </a></li>
                     </ul>
                 </nav>
@@ -89,33 +76,38 @@
 	   <div class="left" >
 
 		<div class="card" >
-                    <h1><i class="fa fa-info-circle" ></i> Station Information</h1>
-
-		</div>
-
-		<div class="card" >
-                    <h1><i class="fa fa-server m-rot"></i> Status</h1>
+                    <h1><i class="fa fa-server"></i> $station.location Status</h1>
 			
 		    <table>
 			<tr><td><b>WeeWX uptime:</b></td><td>$station.uptime</td></tr>
                         <tr><td><b>Server uptime:</b></td><td>$station.os_uptime</td></tr>
+                        <tr><td><b>Hardware:</b></td><td>$station.hardware</td></tr>
+                        <tr><td><b>Software:</b></td><td><a href="http://weewx.com/" target="_blank" >WeeWX v$station.version</a></td></tr>
 		    </table>
 		</div>
-		
+
+                     <div class="card">
+                     <h1><i class="fa fa-globe"></i> International Space Station<h1/>
+		     <center>
+                     <iframe src='https://spotthestation.nasa.gov/widget/widget.cfm?country=United_States&region=North_Carolina&city=Raleigh' width='311' height='450' frameborder='0' ></iframe>
+		    </center>
+                    </div>
+
+
 	   </div>
 
 	   <div class="right" >
 
 		<div class="card" >
-                    <h1><i class="fa fa-history m-gruen" ></i> Station History</h1>
-						
+                    <h1><i class="fa fa-commenting-o" ></i> $station.location Updates</h1>
+		    <p><i class="fa fa-angle-right">Dec-30-2017 This page is dedicated to my favorite <img src="https://png.icons8.com/nolan/20/ffffff/unicorn.png">
+		    who recommended I add tracking for the <b>ISS</b></i></p>
 		</div>
-                
 	   </div>
 
         </div>
         </div>
-        
+ 
         <footer>
             <div class="container-fix">
 	      <div style="text-align:center">
@@ -129,7 +121,8 @@
 	    	&sdot; 
             	Powered by<i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i><a href="http://weewx.com/" target="_blank">WeeWX</a> 
             	&sdot; 
-		Icons from <i class="fa fa-font-awesome" aria-hidden="true"></i><a href="http://fontawesome.io" target="_blank"> Font Awesome</a>
+		Icons from <i class="fa fa-font-awesome" aria-hidden="true"></i><a href="http://fontawesome.io" target="_blank"> Font Awesome </a>&amp;
+                <img src="https://png.icons8.com/ios/14/ffffff/icons8-logo-filled.png"><a href="https://icons8.com"> Icons8</a>
 	      </div>
 	    </div>
         </footer>
