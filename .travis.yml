@@ -1,0 +1,4 @@
+before_install:
+  - sudo apt-key add http://weewx.com/keys.html
+  - sudo add-apt-repository -yu http://weewx.com/apt/
+  - sudo apt-get install -y weewx
