@@ -2,7 +2,7 @@
 # mao need to be able to test if the python script (wee_reports) worked
 
 # Debug mode
-#set -x
+set -x
                                        
 wee_reports --config=weewx-test.conf 2> errors.txt
 
