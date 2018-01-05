@@ -43,3 +43,36 @@ Lastly, you need to put the historygenerator.py python script, in the /usr/share
 https://github.com/brewster76/fuzzy-archer/blob/master/INSTALL
 
 If you have problems, you can email me at josh@cw9009.x10host.com  
+<br>
+Notes:
+Issue 1. Cannot apt install of weewx
+```
+E: The repository 'http://weewx.com/apt/weewx.list trusty Release' does not have a Release file.
+N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+N: See apt-secure(8) manpage for repository creation and user configuration details.
+W: http://ppa.launchpad.net/couchdb/stable/ubuntu/dists/trusty/Release.gpg: Signature by key 15866BAFD9BCC4F3C1E0DFC7D69548E1C17EAB57 uses weak digest algorithm (SHA1)
+```
+Issue 2. wee_reports does not return fail exit to shell
+```
+wee_reports
+   Using configuration file /etc/weewx/weewx.conf
+   Generating for all time
+   Traceback (most recent call last):
+     File "/usr/share/weewx/weewx/reportengine.py", line 239, in run
+       obj.start()
+     File "/usr/share/weewx/weewx/reportengine.py", line 273, in start
+       self.run()
+     File "/usr/share/weewx/weewx/reportengine.py", line 440, in run
+       shutil.copy(_file, dest_dir)
+     File "/usr/lib/python2.7/shutil.py", line 119, in copy
+       copyfile(src, dst)
+     File "/usr/lib/python2.7/shutil.py", line 83, in copyfile
+       with open(dst, 'wb') as fdst:
+   IOError: [Errno 2] No such file or directory: '/var/www/html/weewx/backgrounds'
+   
+   travis_time:end:1f704e16:start=1515180214654354356,finish=1515180215198026533,duration=543672177
+   [0K
+   [32;1mThe command "wee_reports" exited with 0.[0m
+   
+   Done. Your build exited with 0.
+```
