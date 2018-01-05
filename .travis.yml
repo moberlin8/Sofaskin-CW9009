@@ -1,6 +1,5 @@
 before_install:
-  - sudo apt-key add http://weewx.com/keys/tkeffer.gpg.key
-  - sudo apt-key add http://weewx.com/keys/mwall.gpg.key
+  - wget -qO - http://weewx.com/keys.html | sudo apt-key add -
   - sudo add-apt-repository -yu http://weewx.com/apt/
   - sudo apt update
   - sudo apt-get install -y weewx
