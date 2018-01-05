@@ -4,7 +4,7 @@
 # Debug mode
 #set -x
                                        
-wee_reports --config=FAIL 2> errors.txt
+wee_reports --config=weewx-test.conf 2> errors.txt
 
 if grep -q -i err errors.txt
 then
