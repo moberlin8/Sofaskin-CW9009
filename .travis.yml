@@ -1,7 +1,5 @@
 language: generic
 
 before_install:
-  - wget -qO - http://weewx.com/keys.html | sudo apt-key add -
-  - sudo add-apt-repository -y http://weewx.com/apt/weewx.list
-  - sudo apt update
-  - sudo apt-get install -y weewx
+   - wget http://weewx.com/downloads/weewx_3.8.0-1_all.deb
+   - sudo dpkg -i weewx_3.8.0-1_all.deb
