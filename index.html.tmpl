@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta http-equiv="Refresh" content="180">
+	#if $Extras.has_key('cwop')
         <meta name="description" content="$station.location Weather Station ($Extras.cwop) - weather web site powered by WeeWX">
         #else
         <meta name="description" content="$station.location Weather Station - weather web site powered by WeeWX">
@@ -14,7 +15,7 @@
 	<link rel="canonical" href="$Extras.web_url"/>
 	#end if
         
-	<title>$station.location Current Weather Conditions</title>
+	<title>$station.locationXXX Current Weather Conditions</title>
         
         <!-- Open Graph -->
 	#if $Extras.has_key('cwop')
