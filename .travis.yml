@@ -1,5 +1,7 @@
 language: generic
 
 before_install:
+   - sudo apt update
+   - sudo apt install -yq python-imaging python-usb
    - wget http://weewx.com/downloads/weewx_3.8.0-1_all.deb
    - sudo dpkg -i weewx_3.8.0-1_all.deb
