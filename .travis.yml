@@ -7,6 +7,4 @@ before_install:
    - sudo dpkg -i weewx_3.8.0-1_all.deb
 
 script:
-   - sudo ls -al
-   - sudo pwd
    - sudo ./test_wee_reports.sh

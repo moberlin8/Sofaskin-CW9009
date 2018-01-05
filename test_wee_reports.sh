@@ -2,9 +2,9 @@
 # mao need to be able to test if the python script (wee_reports) worked
 
 # Debug mode
-set -x
-
-wee_reports 2> errors.txt
+#set -x
+                                       
+wee_reports --config=FAIL 2> errors.txt
 
 if grep -q -i err errors.txt
 then
