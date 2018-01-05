@@ -9,10 +9,12 @@ wee_reports --config=FAIL 2> errors.txt
 if grep -q -i err errors.txt
 then
   echo "Founds errors"
+  cat errors.txt
   exit 1
 elif grep -q -i traceback errors.txt
 then
   echo "Found traceback"
+  cat errors.txt
   exit 2
 elif [ ! -s errors.txt ]
 then
