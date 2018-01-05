@@ -3,7 +3,9 @@
 
 # Debug mode
 set -x
-                                       
+
+cp --verb ./bin/user/historygenerator.py /usr/share/weewx/user/
+
 wee_reports --config=weewx-test.conf 2> errors.txt
 
 if grep -q -i err errors.txt
