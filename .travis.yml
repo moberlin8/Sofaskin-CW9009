@@ -1,7 +1,7 @@
 language: generic
 
 addons:
-  ssh_known_hosts: Oberlin.TV
+  ssh_known_hosts: oberlin.tv
 
 before_install:
 - sudo apt update
@@ -26,6 +26,6 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/ mao@Oberlin.TV:/etc/weewx/skins/oberlintv/
+  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/ mao@oberlin.tv:/etc/weewx/skins/oberlintv/
   on:
     branch: master
