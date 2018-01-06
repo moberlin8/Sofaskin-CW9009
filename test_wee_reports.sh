@@ -7,9 +7,9 @@ set -x
 cp --verb ./bin/user/historygenerator.py /usr/share/weewx/user/
 
 #mao 2018-Jan-6 More Debug to see what weewx looks like
-wee_debug --info --config=weewx-test.conf --verbosity=2
+wee_debug --info --verbosity=2
 
-wee_reports --config=weewx-test.conf 2> errors.txt 1> output.txt
+wee_reports 2> errors.txt 1> output.txt
 
 if grep -q -i err errors.txt
 then
