@@ -76,3 +76,17 @@ wee_reports
    
    Done. Your build exited with 0.
 ```
+Issue 3. Not having any data on a newly created weewx instance
+```
+Archive info
+     Database name:        weewx.sdb
+     Table name:           archive
+     Unit system:          None (Unknown unit constant)
+     First good timestamp: ******* N/A *******     (    N/A   )
+     Last good timestamp:  ******* N/A *******     (    N/A   )
+     Number of records:    None (no archive records found)
+                           It is likely that the database (weewx.sdb) archive table (archive)
+                           exists but contains no data.
+     weewx (weewx.conf) is set to use an archive interval of 300 seconds.
+     The station hardware was not interrogated in determining archive interval.
+```
