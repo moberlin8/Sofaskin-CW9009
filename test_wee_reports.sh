@@ -33,3 +33,16 @@ fi
 
 cat errors.txt
 
+cd /tmp/weewx/html
+if [ ! -e index.html ]
+then
+  echo "Error generating index.html"
+  exit 3
+elif [ ! -e month.html ]
+then
+  echo "Error generating month.html"
+  exit 3
+else
+  echo "html files generated successfully"
+  exit 0
+fi

@@ -12,4 +12,3 @@ script:
    - sudo cat /var/log/syslog | grep wee
    - sudo ls /tmp/weewx/skins/oberlintv
    - sudo ls /tmp/weewx/html
-   - sudo cat /tmp/weewx/html/index.html
