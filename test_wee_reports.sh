@@ -6,7 +6,7 @@ set -x
 
 cp --verb ./bin/user/historygenerator.py /usr/share/weewx/user/
 
-wee_reports --config=weewx-test.conf 2> errors.txt
+wee_reports --config=weewx-test.conf 2> errors.txt 1> output.txt
 
 if grep -q -i err errors.txt
 then
@@ -21,6 +21,7 @@ then
 elif [ ! -s errors.txt ]
 then
   echo "Looks clean"
+  cat output.txt
   exit 0
 else
   echo "Should be clean"
