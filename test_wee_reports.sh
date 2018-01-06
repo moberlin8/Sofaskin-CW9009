@@ -25,10 +25,8 @@ elif [ ! -s errors.txt ]
 then
   echo "Looks clean"
   cat output.txt
-  exit 0
 else
   echo "Should be clean"
-  exit 0
 fi
 
 cat errors.txt
@@ -44,5 +42,4 @@ then
   exit 3
 else
   echo "html files generated successfully"
-  exit 0
 fi
