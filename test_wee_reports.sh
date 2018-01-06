@@ -21,6 +21,11 @@ then
   echo "Found traceback"
   cat errors.txt
   exit 2
+elif grep -q  *** errors.txt
+then
+  echo "Found *** messages"
+  cat errors.txt
+  exit 3
 elif [ ! -s errors.txt ]
 then
   echo "Looks clean"
