@@ -6,6 +6,9 @@ set -x
 
 cp --verb ./bin/user/historygenerator.py /usr/share/weewx/user/
 
+# mao 2018-Jan-6 Hack for "time" issue
+sleep 120
+
 wee_reports --config=weewx-test.conf 2> errors.txt 1> output.txt
 
 if grep -q -i err errors.txt
