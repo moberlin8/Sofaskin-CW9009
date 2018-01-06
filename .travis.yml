@@ -9,3 +9,6 @@ before_install:
 script:
    - sudo ./setup_reports.sh
    - sudo ./test_wee_reports.sh
+   - sudo ls /tmp/weewx/skins/oberlibtv
+   - sudo ls /tmp/weewx/html
+   - sudo cat /tmp/weewx/index.html
