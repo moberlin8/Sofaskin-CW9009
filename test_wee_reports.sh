@@ -33,17 +33,18 @@ cat errors.txt
 
 cd /tmp/weewx/html
 html=( index.html month.html station.html summary.html week.html year.html )
-missing = 0
+missing=0
 for i in "${html[@]}"
 do
 	if [ ! -e $i ]
 	then
 	  echo "Error generating $i"
-	  missing = 1
+	  let missing++
+	fi
 done
-if [ missing gt 0 ]
+if [ $missing > 0 ]
 then
-  echo "Error generating html"
+  echo "Error generating $missing html files"
   exit 3
 else
   echo "html files generated successfully"
