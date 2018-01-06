@@ -24,7 +24,7 @@ then
 elif grep -q  "***" output.txt
 then
   echo "Found *** messages"
-  cat output.txt | grep "***"
+  cat output.txt
   exit 3
 elif [ ! -s errors.txt ]
 then
