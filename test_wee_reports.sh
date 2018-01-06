@@ -21,10 +21,10 @@ then
   echo "Found traceback"
   cat errors.txt
   exit 2
-elif grep -q  *** errors.txt
+elif grep -q  "***" output.txt
 then
   echo "Found *** messages"
-  cat errors.txt
+  cat output.txt | grep "***"
   exit 3
 elif [ ! -s errors.txt ]
 then
