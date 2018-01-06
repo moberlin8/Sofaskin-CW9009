@@ -31,7 +31,7 @@ fi
 
 cat errors.txt
 
-cd /tmp/weewx/html
+pushd /tmp/weewx/html
 html=( index.html month.html station.html summary.html week.html year.html )
 missing=0
 for i in "${html[@]}"
@@ -49,4 +49,5 @@ then
 else
   echo "html files generated successfully"
 fi
+popd
 rm ./output.txt
