@@ -6,8 +6,8 @@ set -x
 
 cp --verb ./bin/user/historygenerator.py /usr/share/weewx/user/
 
-# mao 2018-Jan-6 another hack to fix "time" issue, set mod time 
-touch -d '1 May 2005 10:22' /tmp/weewx/skins/oberlintv/*
+#mao 2018-Jan-6 Debug to see what the SQLite db looks like
+sudo ls -al /var/lib/weewx/
 
 wee_reports --config=weewx-test.conf 2> errors.txt 1> output.txt
 
