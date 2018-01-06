@@ -51,3 +51,4 @@ else
 fi
 popd
 rm ./output.txt
+rm errors.txt
