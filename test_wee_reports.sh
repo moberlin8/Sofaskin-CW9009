@@ -42,7 +42,7 @@ do
 	  let missing++
 	fi
 done
-if [ $missing > 0 ]
+if (( missing > 0 ))
 then
   echo "Error generating $missing html files"
   exit 3
