@@ -49,4 +49,4 @@ then
 else
   echo "html files generated successfully"
 fi
-rm output.txt
+rm ./output.txt
