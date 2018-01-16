@@ -41,9 +41,10 @@
 
   </head>
     <body>
-        <header>
+    	<header>
             <div class="container-fix" >
                 <div class="h-left" >
+		<h1><i class="fa fa-television" ></i> Oberlin.TV </h1>
                 <h2>Current Weather Conditions</h2>
                 <p><i class="fa fa-clock-o" ></i> $current.dateTime.format("%b-%d-%Y %I:%M %p %Z")</p>
 		<p id="freshweather" class="m-orange"></p>
@@ -51,29 +52,17 @@
                       window.onload = checkDiff("$current.dateTime ($current.dateTime.format('%Z'))");
                 </script>
                 </div>
-                
-                <div class="h-right" >
-                    <table>
-                        <tr><td><b>Station:</b></td><td>$station.hardware</td></tr>
-                        <tr><td><b>Software:</b></td><td><a href="http://weewx.com/" target="_blank" >WeeWX v$station.version</a></td></tr>
-                        <tr><td><b>Weewx uptime:</b></td><td>$station.uptime</td></tr>
-                        <tr><td><b>Server uptime:</b></td><td>$station.os_uptime</td></tr>
-			#if $Extras.has_key('cwop') and $Extras.has_key('crahs')
-			<tr><td><b>Station IDs:</b></td><td><a href="$Extras.cwop_url" target="_blank">$Extras.cwop</a> | <a href="$Extras.crahs_url" target="_blank">$Extras.crahs</a></td></tr>
-			#end if
-		    </table>
-                </div>
 
                 <nav>
                     <ul class="topnav" id="myTopnav">
 			<li class="icon"><a href="javascript:void(0);" onclick="myFunction()"><i class="fa fa-bars" ></i></a></li>
-                        <li class="active" ><a href="/" >Current</a></li>
+                        <li class="active"><a href="/" >Current</a></li>
                         <li><a href="week.html" >Week</a></li>
                         <li><a href="month.html" >Month</a></li>
                         <li><a href="year.html" >Year</a></li>
-			<li><a href="summary.html" >Summary</a></li>
-			<li><a href="station.html" >Information</a></li>
-			<li><a href="RSS/weewx_rss.xml" ><i class="fa fa-rss" ></i></a></li>
+			                  <li><a href="summary.html" >Summaries</a></li>
+			                  <li><a href="station.html" >Information</a></li>
+                        <li><a href="RSS/weewx_rss.xml" ><i class="fa fa-rss" ></i> </a></li>
                     </ul>
                 </nav>
             </div>
@@ -403,23 +392,11 @@
                     <img src="dayrain.png" alt="rain" />
                     <img src="daywind.png" alt="wind" />
                     <img src="daywinddir.png" alt="Hi Wind" />
-		    <img src="daywindvec.png" alt="Wind Vector" />
+            		    <img src="daywindvec.png" alt="Wind Vector" />
                     <img src="daytempchill.png" alt="heatchill" />
-		    <img src="daybarometer.png" alt="barometer"/>
+		                <img src="daybarometer.png" alt="barometer"/>
                     <img src="dayinside.png" alt="Inside" />
-		    <img src="dayinhumid.png" alt="Inside/Outside Humidity" />
-                    #if $day.radiation.has_data
-                    #<img src="dayradiation.png" alt="Radiation" />
-                    #end if
-                    #if $day.UV.has_data
-                    #<img src="dayuv.png" alt="UV Index" />
-                    #end if
-                    #if $day.rxCheckPercent.has_data
-                    #<img src="dayrx.png" alt="day rx percent"/>
-                    #end if
-                    #if $day.extraTemp1.has_data
-                    <img src="daypond.png" alt="Pond Temperatures" />
-                    #end if
+		                <img src="dayinhumid.png" alt="Inside/Outside Humidity" />
                 </div>
                 
             </div>
