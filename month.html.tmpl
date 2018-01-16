@@ -1,80 +1,68 @@
 <!DOCTYPE html>
 <html class="no-js">
-    <head itemscope itemtype="http://schema.org/Website">
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta http-equiv="Refresh" content="180">
-	#if $Extras.has_key('cwop')
-        <meta name="description" content="$station.location Weather Station ($Extras.cwop) - weather web site powered by WeeWX">
-        #else
-        <meta name="description" content="$station.location Weather Station - weather web site powered by WeeWX">
-	#end if
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="profile" href="http://gmpg.org/xfn/11" />
-	#if $Extras.has_key('web_url')
-	<link href="$Extras.web_url/month.html" itemprop="url"/>
-	#end if
-        
-	<title itemprop="name">$station.location Monthly Weather Summary</title>
-        
+ <head itemscope itemtype="http://schema.org/Website">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <meta http-equiv="Refresh" content="180">
+	   #if $Extras.has_key('cwop')
+     <meta name="description" content="$station.location Weather Station ($Extras.cwop) - weather web site powered by WeeWX">
+     #else
+     <meta name="description" content="$station.location Weather Station - weather web site powered by WeeWX">
+	   #end if
+	   <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="profile" href="http://gmpg.org/xfn/11" />
+	   #if $Extras.has_key('web_url')
+	   <link href="$Extras.web_url/station.html" itemprop="url"/>
+	   #end if
+
+	<title itemprop="name">$station.location Information Page</title>
+
         <!-- Open Graph -->
-	<meta property="og:site_name" content="$station.location Monthly Weather Summary" />
-	<meta property="og:title" content="Monthly Weather Summary"/>
+	<meta property="og:site_name" content="$station.location Station" />
+	<meta property="og:title" content="Station Information"/>
 	#if $Extras.has_key('web_url')
-	<meta property="og:url" content="$Extras.web_url/month.html"/>
+	<meta property="og:url" content="$Extras.web_url/station.html"/>
 	#end if
-        <meta property="og:description" content="Monthly Weather Summary for $station.location - weather web site powered by WeeWX" />
+	<meta property="og:description" content="Station Information for $station.location - weather web site powered by WeeWX" />
 	<meta property="og:type" content="website" />
 
         <!-- Icons -->
         <link rel="icon" href="favicon.ico" type="image/png">
-	<link rel="apple-touch-icon" href="touch-icon.png"/>
-        
+	      <link rel="apple-touch-icon" href="touch-icon.png"/>
+
         <!-- Styles -->
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/main.css">
-        
+
         <!-- Skripte -->
         <script src="js/modernizr-2.6.2.min.js"></script>
-	<script src="js/checkdiff.js"></script>
-        
-    </head>
-    <body>
+	      <script src="js/checkdiff.js"></script>
 
-	<header>
+  </head>
+    <body>
+    	<header>
             <div class="container-fix" >
                 <div class="h-left" >
+		            <h1><i class="fa fa-television" ></i> Oberlin.TV </h1>
                 <h2>Monthly Weather Summary</h2>
                 <p><i class="fa fa-clock-o" ></i> $current.dateTime.format("%b-%d-%Y %I:%M %p %Z")</p>
-		<p id="freshweather" class="m-orange"></p>
-		<script type="text/javascript">
+		            <p id="freshweather" class="m-orange"></p>
+		            <script type="text/javascript">
                       window.onload = checkDiff("$current.dateTime ($current.dateTime.format('%Z'))");
                 </script>
-                </div>
-                
-                <div class="h-right" >
-                    <table>
-                        <tr><td><b>Station:</b></td><td>$station.hardware</td></tr>
-                        <tr><td><b>Software:</b></td><td><a href="http://weewx.com/" target="_blank" >WeeWX v$station.version</a></td></tr>
-                        <tr><td><b>Weewx uptime:</b></td><td>$station.uptime</td></tr>
-                        <tr><td><b>Server uptime:</b></td><td>$station.os_uptime</td></tr>
-			#if $Extras.has_key('cwop') and $Extras.has_key('crahs')
-			<tr><td><b>Station IDs:</b></td><td><a href="$Extras.cwop_url" target="_blank">$Extras.cwop</a> | <a href="$Extras.crahs_url" target="_blank">$Extras.crahs</a></td></tr>
-			#end if
-                    </table>
                 </div>
 
                 <nav>
                     <ul class="topnav" id="myTopnav">
-			<li class="icon"><a href="javascript:void(0);" onclick="myFunction()"><i class="fa fa-bars" ></i></a></li>
+			                  <li class="icon"><a href="javascript:void(0);" onclick="myFunction()"><i class="fa fa-bars" ></i></a></li>
                         <li><a href="/" >Current</a></li>
                         <li><a href="week.html" >Week</a></li>
                         <li class="active"><a href="month.html" >Month</a></li>
                         <li><a href="year.html" >Year</a></li>
-			<li><a href="summary.html" >Summary</a></li>
-			<li><a href="station.html" >Information</a></li>
-			<li><a href="RSS/weewx_rss.xml" ><i class="fa fa-rss" ></i></a></li>
+			                  <li><a href="summary.html" >Summaries</a></li>
+			                  <li><a href="station.html" >Information</a></li>
+                        <li><a href="RSS/weewx_rss.xml" ><i class="fa fa-rss" ></i> </a></li>
                     </ul>
                 </nav>
             </div>
