@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js">
-    <head itemscope itemtype="http://schema.org/Website">
-        <meta charset="utf-8">
+ <head itemscope itemtype="http://schema.org/Website">
+    <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta http-equiv="Refresh" content="180">
 	#if $Extras.has_key('cwop')
@@ -9,63 +9,37 @@
         #else
         <meta name="description" content="$station.location Weather Station - weather web site powered by WeeWX">
 	#end if
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="profile" href="http://gmpg.org/xfn/11" />
 	#if $Extras.has_key('web_url')
-	<link rel="canonical" href="$Extras.web_url"/>
+	<link href="$Extras.web_url/station.html" itemprop="url"/>
 	#end if
-        
-	<title>$station.location Current Weather Conditions</title>
-        
-        <!-- Open Graph -->
-	#if $Extras.has_key('cwop')
-        <meta property="og:site_name" content="$station.location Weather Station ($Extras.cwop)" />
-	<meta property="og:title" content="$station.location ($Extras.cwop) Current Weather Conditions"/>
-	#else
-	<meta property="og:site_name" content="$station.location Weather Station" />
-	<meta property="og:title" content="$station.location Current Weather Conditions"/>
-	#end if
-	<meta property="og:image" content="$Extras.web_url/daytempdew.png"/>
-	#if $Extras.has_key('web_url')
-	<meta property="og:url" content="$Extras.web_url"/>
-	#end if
-	#if $Extras.has_key('cwop')
-        <meta property="og:description" content="Current Weather Conditions in $station.location ($Extras.cwop) - weather web site powered by WeeWX" />
-	#else
-	<meta property="og:description" content="Current Weather Conditions in $station.location - weather web site powered by WeeWX" />
-	#end if
-	<meta property="og:type" content="website" />
 
-	<!--SM Markups -->
-	#if $Extras.has_key('cwop')
-	<meta itemprop="name" content="$station.location ($Extras.cwop) Current Weather Conditions"/>
-	#else
-	<meta itemprop="name" content="$station.location Current Weather Conditions"/>
-	#end if
-	<meta itemprop="image" content="$Extras.web_url/daytempdew.png"/>
+	<title itemprop="name">$station.location Information Page</title>
+
+        <!-- Open Graph -->
+	<meta property="og:site_name" content="$station.location Station" />
+	<meta property="og:title" content="Station Information"/>
 	#if $Extras.has_key('web_url')
-	<meta itemprop="url" content="$Extras.web_url"/>
+	<meta property="og:url" content="$Extras.web_url/station.html"/>
 	#end if
-	#if $Extras.has_key('cwop')
-        <meta itemprop="description" content="Current Weather Conditions in $station.location ($Extras.cwop) - weather web site powered by WeeWX" />
-	#else
-        <meta itemprop="description" content="Current Weather Conditions in $station.location - weather web site powered by WeeWX" />
-	#end if
+	<meta property="og:description" content="Station Information for $station.location - weather web site powered by WeeWX" />
+	<meta property="og:type" content="website" />
 
         <!-- Icons -->
         <link rel="icon" href="favicon.ico" type="image/png">
 	<link rel="apple-touch-icon" href="touch-icon.png"/>
-        
+
         <!-- Styles -->
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/main.css">
-        
+
         <!-- Skripte -->
         <script src="js/modernizr-2.6.2.min.js"></script>
 	<script src="js/checkdiff.js"></script>
-        
-    </head>
+
+  </head>
     <body>
         <header>
             <div class="container-fix" >
@@ -146,10 +120,10 @@
                         <tr><td>UV</td><td>$current.UV</td></tr>
                         #end if
                         #if $day.ET.has_data and $day.ET.sum.raw > 0.0
-                        <tr><td>ET</td><td>$current.ET</td></tr>
+                        #<tr><td>ET</td><td>$current.ET</td></tr>
                         #end if
                         #if $day.radiation.has_data
-                        <tr><td>Solar Radiation</td><td>$current.radiation</td></tr>
+                        #<tr><td>Solar Radiation</td><td>$current.radiation</td></tr>
                         #end if
                     </table>
                 </div>
@@ -435,13 +409,13 @@
                     <img src="dayinside.png" alt="Inside" />
 		    <img src="dayinhumid.png" alt="Inside/Outside Humidity" />
                     #if $day.radiation.has_data
-                    <img src="dayradiation.png" alt="Radiation" />
+                    #<img src="dayradiation.png" alt="Radiation" />
                     #end if
                     #if $day.UV.has_data
-                    <img src="dayuv.png" alt="UV Index" />
+                    #<img src="dayuv.png" alt="UV Index" />
                     #end if
                     #if $day.rxCheckPercent.has_data
-                    <img src="dayrx.png" alt="day rx percent"/>
+                    #<img src="dayrx.png" alt="day rx percent"/>
                     #end if
                     #if $day.extraTemp1.has_data
                     <img src="daypond.png" alt="Pond Temperatures" />
